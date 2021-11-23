@@ -1,6 +1,5 @@
 package facade;
 
-import com.sun.xml.internal.org.jvnet.mimepull.MIMEMessage;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
