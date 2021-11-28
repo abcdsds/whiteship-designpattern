@@ -1,14 +1,11 @@
 package mediator;
 
+import java.time.LocalDateTime;
+
 public class Restaurant {
 
-    private CleaningService cleaningService = new CleaningService();
-
-    public void dinner(Guest guest) {
-        System.out.println("dinner " + guest);
-    }
-
-    public void clean() {
-        cleaningService.clean(this);
+    public void dinner(FrontDesk frontDesk, Integer id, LocalDateTime dateTime) {
+        String rommNumberFor = frontDesk.getRommNumberFor(id);
+        System.out.println("dinner at the " + rommNumberFor + " at " + dateTime);
     }
 }

@@ -1,16 +1,31 @@
 package mediator;
 
+import java.time.LocalDateTime;
+
 public class Guest {
 
-    private Restaurant restaurant = new Restaurant();
+    private Integer id;
 
-    private CleaningService cleaningService = new CleaningService();
+    private FrontDesk frontDesk;
 
-    public void dinner() {
-        restaurant.dinner(this);
+    public Guest(Integer id, FrontDesk frontDesk) {
+        this.id = id;
+        this.frontDesk = frontDesk;
     }
 
-    public void getTower(int numberOfTower) {
-        cleaningService.getTower(this, numberOfTower);
+    public Guest(Integer id) {
+        this.id = id;
+    }
+
+    public void dinner(LocalDateTime dateTime) {
+        this.frontDesk.dinner(this, dateTime);
+    }
+
+    public void getTowers(int numberOfTowers) {
+        this.frontDesk.getTowers(this, numberOfTowers);
+    }
+
+    public Integer getId() {
+        return this.id;
     }
 }
